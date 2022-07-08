@@ -41,6 +41,17 @@ const onGalleryClick = (event) => {
     `);
 
   instance.show();
+
+  window.addEventListener('keydown', onEscClick);
+
+  function onEscClick (event) {
+    if(event.code !== 'Escape'){
+      return
+    }
+    instance.close()
+    window.removeEventListener('keydown', onEscClick);
+  }
 };
+
 
 galleryEl.addEventListener("click", onGalleryClick);
